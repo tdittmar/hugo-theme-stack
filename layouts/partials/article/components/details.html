@@ -25,6 +25,13 @@
 
     {{ if or (not .Date.IsZero) (.Site.Params.article.readingTime) }}
     <footer class="article-time">
+        {{ if .Param "authors" }}
+            {{ partial "helper/icon" "user" }}
+            <div>
+                {{ delimit (.Param "authors") ", " }}
+            </div>
+        {{ end }}
+                
         {{ if not .Date.IsZero }}
             <div>
                 {{ partial "helper/icon" "date" }}
